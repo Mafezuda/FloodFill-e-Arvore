@@ -13,10 +13,6 @@ public class ProcessarComPilha {
         PilhaPontos pilha = new PilhaPontos(foto.obterAltura() * foto.obterLargura());
         pilha.empilhar(pontoInicial);
 
-        int contador = 0;
-        int intervaloAtualizacao = 10;
-        int intervaloPausa = 100; // Pausa de 100ms após cada atualização
-
         while (!pilha.estaVazia()) {
             Ponto atual = pilha.desempilhar();
             int x = atual.getPosX();
@@ -32,20 +28,10 @@ public class ProcessarComPilha {
                     pilha.empilhar(new Ponto(x, y + 1));
                     pilha.empilhar(new Ponto(x, y - 1));
 
-                    contador++;
-                    if (contador % intervaloAtualizacao == 0) {
-                        painel.atualizarFoto(foto);
-                        try {
-                            Thread.sleep(intervaloPausa); // Pausa para desacelerar o processo
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    painel.atualizarFoto(foto);
+                    foto.salvarFoto("Fotos/foto_alterada_pilha.png");
                 }
             }
         }
-
-        painel.atualizarFoto(foto);
-        foto.salvarFoto("Fotos/foto_alterada_pilha.png");
     }
 }
