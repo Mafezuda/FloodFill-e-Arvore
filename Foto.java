@@ -3,53 +3,47 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class Imagem {
+public class Foto {
     private BufferedImage imagem;
     private int largura;
     private int altura;
-    private String caminho;
 
-    public Imagem(String caminho) {
+    public Foto(String caminho) {
         try {
             this.imagem = ImageIO.read(new File(caminho));
             this.largura = imagem.getWidth();
             this.altura = imagem.getHeight();
-            this.caminho = caminho;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro ao carregar a imagem: " + caminho, e);
         }
     }
 
-    public int getCorPixel(Coordenada coordenada) {
-        return imagem.getRGB(coordenada.getX(), coordenada.getY());
+    public int obterCorPonto(Ponto ponto) {
+        return imagem.getRGB(ponto.getPosX(), ponto.getPosY());
     }
 
-    public void setCorPixel(Coordenada coordenada, int cor) {
-        imagem.setRGB(coordenada.getX(), coordenada.getY(), cor);
+    public void alterarCorPonto(Ponto ponto, int cor) {
+        imagem.setRGB(ponto.getPosX(), ponto.getPosY(), cor);
     }
 
-    public int getLargura() {
+    public int obterLargura() {
         return largura;
     }
 
-    public int getAltura() {
+    public int obterAltura() {
         return altura;
-    }
-
-    public String getCaminho() {
-        return caminho;
     }
 
     public BufferedImage getImagem() {
         return imagem;
     }
 
-    public void salvarImagem(String caminho) {
+    public void salvarFoto(String caminho) {
         try {
             File arquivo = new File(caminho);
             ImageIO.write(imagem, "png", arquivo);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro ao salvar a imagem: " + caminho, e);
         }
     }
 }
