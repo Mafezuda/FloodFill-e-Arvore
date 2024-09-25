@@ -14,7 +14,7 @@ public class ProcessarComPilha {
         pilha.empilhar(pontoInicial);
 
         while (!pilha.estaVazia()) {
-            Ponto atual = pilha.desempilhar();
+            Ponto atual = pilha.desempilhar(); 
             int x = atual.getPosX();
             int y = atual.getPosY();
 
