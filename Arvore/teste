@@ -1,0 +1,45 @@
+Scanner s = new Scanner(System.in);
+        System.out.println("Digite o código (utilize espaço para separar as letras):");     
+        String codigo = s.nextLine();
+        char[] simbolos = new char[4];
+        char[] decifrado = new char[codigo.length()];
+        int posicao = 0;
+
+        // Percorrendo cada caractere da string
+        for (int i = 0; i < codigo.length(); i++) {
+            char letra = codigo.charAt(i);
+            
+            if (letra == ' ') {
+                // Aqui você pode definir como pesquisar com o array de simbolos
+                No no = a.pesquisar(simbolos);
+                if (no != null) {  // Verificando se no não é nulo
+                    decifrado[posicao] = no.getLetra().getValor();
+                } else {
+                    decifrado[posicao] = '?'; // ou algum valor padrão
+                }
+                posicao++;
+                // Resetando simbolos
+                simbolos = new char[4]; // Reinicializando o array
+            } else {
+                // Adicionando letra ao array simbolos
+                for (int j = 0; j < simbolos.length; j++) {
+                    if (simbolos[j] == 0) { // Verifica se a posição está vazia
+                        simbolos[j] = letra;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Se você quiser, pode processar a última parte se não terminar com espaço
+        if (posicao < decifrado.length) {
+            No no = a.pesquisar(simbolos);
+            if (no != null) {
+                decifrado[posicao] = no.getLetra().getValor();
+            }
+        }
+
+        // Exibindo a string decifrada
+        System.out.println("Código decifrado: " + String.valueOf(decifrado).trim());
+        s.close();
+    }
