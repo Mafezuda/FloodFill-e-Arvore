@@ -19,7 +19,7 @@ public class Main {
         char[] h = { '.', '.', '.', '.' };
         a.inserir(new Letra('H', h));
 
-        char[] v = { '.', '.', '-', '.' };
+        char[] v = { '.', '.', '.', '-' };
         a.inserir(new Letra('V', v));
 
         char[] u = { '.', '.', '-' };
@@ -86,6 +86,17 @@ public class Main {
         a.inserir(new Letra('X', x));
     }
 
+    public static String imprimir(char[] decifrado) {
+        String palavra = "";
+        for (char d : decifrado) {
+            if (d != ' ') { 
+                palavra += d; 
+            }
+        }
+        return palavra;
+    }
+    
+
     public static void main(String[] args) {
         Arvore a = new Arvore();
         inserirElementos(a);
@@ -104,23 +115,28 @@ public class Main {
                 System.out.println("Digite o código (utilize espaço para separar as letras):");
                 String codigo = scan.nextLine();
                 String[] simbolos = codigo.split(" ");
-                StringBuilder decifrado = new StringBuilder();
-
+                char[] decifrado = new char[simbolos.length];
+                int posicao = 0;
                 for (String simbolo : simbolos) {
                     No no = a.pesquisar(simbolo.toCharArray());
                     if (no != null) {
-                        decifrado.append(no.getLetra().getValor());
+                        decifrado[posicao] = no.getLetra().getValor();
+                        posicao++;
+                    }else{
+                        System.out.println("Entrada invalida!");
                     }
                 }
 
-                System.out.println("Decifrado: " + decifrado.toString());
+                System.out.println("Decifrado: " + imprimir(decifrado));
                 break;
             case 2:
-                a.imprimirArvore(); // Chama o método para imprimir a árvore
+                a.imprimirArvore(); 
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
         }
-        scan.close();
+
+
     }
+    
 }
