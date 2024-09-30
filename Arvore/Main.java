@@ -28,8 +28,8 @@ public class Main {
         char[] f = { '.', '.', '-', '.' };
         a.inserir(new Letra('F', f));
 
-        char[] A = { '.', '-' };
-        a.inserir(new Letra('A', A));
+        char[] a = { '.', '-' };
+        a.inserir(new Letra('A', a));
 
         char[] r = { '.', '-', '.' };
         a.inserir(new Letra('R', r));
@@ -89,13 +89,12 @@ public class Main {
     public static String imprimir(char[] decifrado) {
         String palavra = "";
         for (char d : decifrado) {
-            if (d != ' ') { 
-                palavra += d; 
+            if (d != ' ') {
+                palavra += d;
             }
         }
         return palavra;
     }
-    
 
     public static void main(String[] args) {
         Arvore a = new Arvore();
@@ -122,21 +121,20 @@ public class Main {
                     if (no != null) {
                         decifrado[posicao] = no.getLetra().getValor();
                         posicao++;
-                    }else{
-                        System.out.println("Entrada invalida!");
+                    } else {
+                        System.out.println("Entrada inválida!");
                     }
                 }
 
                 System.out.println("Decifrado: " + imprimir(decifrado));
                 break;
             case 2:
-                a.imprimirArvore(); 
+                a.imprimirArvore();
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
         }
 
-
+        scan.close(); // Fechar o scanner
     }
-    
 }
