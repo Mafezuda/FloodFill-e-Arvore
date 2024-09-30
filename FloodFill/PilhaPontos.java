@@ -9,7 +9,7 @@ public class PilhaPontos {
 
     public void empilhar(Ponto ponto) {
         if (estaCheia()) {
-            throw new IllegalStateException("A pilha está cheia!");
+            redimensionar();
         }
         this.elementos[++topo] = ponto;
     }
@@ -30,5 +30,12 @@ public class PilhaPontos {
 
     public boolean estaVazia() {
         return topo == -1;
+    }
+
+    // Método para redimensionar a pilha quando necessário
+    private void redimensionar() {
+        Ponto[] novaPilha = new Ponto[elementos.length * 2];
+        System.arraycopy(elementos, 0, novaPilha, 0, elementos.length);
+        this.elementos = novaPilha;
     }
 }
