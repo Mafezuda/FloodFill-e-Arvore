@@ -28,8 +28,8 @@ public class Main {
         char[] f = { '.', '.', '-', '.' };
         a.inserir(new Letra('F', f));
 
-        char[] a = { '.', '-' };
-        a.inserir(new Letra('A', a));
+        char[] A = { '.', '-' };
+        a.inserir(new Letra('A', A));
 
         char[] r = { '.', '-', '.' };
         a.inserir(new Letra('R', r));
@@ -129,7 +129,7 @@ public class Main {
                 System.out.println("Decifrado: " + imprimir(decifrado));
                 break;
             case 2:
-                a.imprimirArvore();
+                a.imprimirArvore(a.getRaiz());
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
