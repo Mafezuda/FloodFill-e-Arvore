@@ -7,13 +7,13 @@ public class ProcessarComPilha {
         painel.exibirImagem();
         Ponto pontoInicial = new Ponto(10, 10);
         int corOriginal = foto.obterCorPonto(pontoInicial);
-        int novaCor = new Color(0, 128, 0).getRGB(); // Verde
+        int novaCor = new Color(0, 128, 0).getRGB();
         PilhaPontos pilha = new PilhaPontos(foto.obterAltura() * foto.obterLargura());
         pilha.empilhar(pontoInicial);
 
         // Contador para controlar a atualização da imagem durante o processamento
         int contador = 0;
-        int intervaloAtualizacao = 1000;
+        int intervaloAtualizacao = 1;
 
         while (!pilha.estaVazia()) {
             Ponto atual = pilha.desempilhar();
