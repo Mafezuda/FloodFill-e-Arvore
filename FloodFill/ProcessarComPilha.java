@@ -13,7 +13,7 @@ public class ProcessarComPilha {
 
         // Contador para controlar a atualização da imagem durante o processamento
         int contador = 0;
-        int intervaloAtualizacao = 1;
+        int intervaloAtualizacao = 2;
 
         while (!pilha.estaVazia()) {
             Ponto atual = pilha.desempilhar();
@@ -38,10 +38,7 @@ public class ProcessarComPilha {
             }
         }
 
-        // Atualiza a imagem uma última vez após o processo
         painel.atualizarFoto(foto);
-
-        // Salva a imagem alterada no final
         foto.salvarFoto("Fotos/foto_alterada_pilha.png");
     }
 }
