@@ -32,7 +32,6 @@ public class PilhaPontos {
         return topo == -1;
     }
 
-    // Método para redimensionar a pilha quando necessário
     private void redimensionar() {
         Ponto[] novaPilha = new Ponto[elementos.length * 2];
         System.arraycopy(elementos, 0, novaPilha, 0, elementos.length);

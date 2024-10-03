@@ -11,7 +11,6 @@ public class ProcessarComPilha {
         PilhaPontos pilha = new PilhaPontos(foto.obterAltura() * foto.obterLargura());
         pilha.empilhar(pontoInicial);
 
-        // Contador para controlar a atualização da imagem durante o processamento
         int contador = 0;
         int intervaloAtualizacao = 2;
 

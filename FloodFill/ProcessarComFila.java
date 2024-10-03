@@ -8,7 +8,7 @@ public class ProcessarComFila {
 
         Ponto pontoInicial = new Ponto(500, 200);
         int corOriginal = foto.obterCorPonto(pontoInicial);
-        int novaCor = new Color(0, 128, 0).getRGB(); // Verde
+        int novaCor = new Color(0, 128, 0).getRGB();
 
         FilaPontos fila = new FilaPontos(foto.obterAltura() * foto.obterLargura());
         fila.adicionar(pontoInicial);

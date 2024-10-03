@@ -60,7 +60,6 @@ public class Arvore {
         return atual;
     }
 
-    // Função para imprimir a árvore em formato hierárquico com os "trapinhos"
     public static void imprimirArvore(No raiz) {
         List<List<String>> linhas = new ArrayList<>();
         construirLinhas(raiz, 0, linhas);
@@ -69,15 +68,14 @@ public class Arvore {
         }
     }
 
-    // Função recursiva para construir as linhas da árvore
     private static void construirLinhas(No no, int nivel, List<List<String>> linhas) {
         if (nivel == linhas.size()) {
             linhas.add(new ArrayList<>());
         }
         if (no == null) {
-            linhas.get(nivel).add(null); // Nó vazio
+            linhas.get(nivel).add(null);
             if (nivel + 1 < linhas.size()) {
-                construirLinhas(null, nivel + 1, linhas); // Garante que nós vazios sejam preenchidos nos próximos níveis
+                construirLinhas(null, nivel + 1, linhas);
                 construirLinhas(null, nivel + 1, linhas);
             }
             return;
@@ -87,17 +85,16 @@ public class Arvore {
         construirLinhas(no.getDireita(), nivel + 1, linhas);
     }
 
-    // Função para formatar as linhas com os "trapinhos" conectando os nós
     private static List<String> formatarLinhas(List<List<String>> linhas) {
         List<String> resultado = new ArrayList<>();
-        int espacoEntreNos = (int) Math.pow(2, linhas.size()); // Espaçamento inicial
+        int espacoEntreNos = (int) Math.pow(2, linhas.size());
 
         for (int i = 0; i < linhas.size(); i++) {
             List<String> nivel = linhas.get(i);
             StringBuilder linhaNos = new StringBuilder();
             StringBuilder linhaConexoes = new StringBuilder();
 
-            // Ajuste para centralizar o primeiro nó
+
             if (i == 0) {
                 linhaNos.append(" ".repeat(espacoEntreNos / 2));
             }
@@ -127,7 +124,7 @@ public class Arvore {
             if (i < linhas.size() - 1) {
                 resultado.add(linhaConexoes.toString());
             }
-            espacoEntreNos /= 2; // Reduz o espaçamento a cada nível
+            espacoEntreNos /= 2;
         }
 
         return resultado;
