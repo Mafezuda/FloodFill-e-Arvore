@@ -5,7 +5,7 @@ public class ProcessarComPilha {
         Foto foto = new Foto("Fotos/foto.png");
         PainelImagem painel = new PainelImagem(foto, "Visualizando Foto");
         painel.exibirImagem();
-        Ponto pontoInicial = new Ponto(500, 200); //500, 200, meio do coração, 10 e 10 inicial lá encima, na linha não lembro
+        Ponto pontoInicial = new Ponto(350, 100);
         int corOriginal = foto.obterCorPonto(pontoInicial);
         int novaCor = new Color(0, 128, 0).getRGB();
         PilhaPontos pilha = new PilhaPontos(foto.obterAltura() * foto.obterLargura());

@@ -129,8 +129,4 @@ public class Arvore {
 
         return resultado;
     }
-
-   
-
-    
 }
