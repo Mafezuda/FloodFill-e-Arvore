@@ -6,15 +6,15 @@ public class ProcessarComFila {
         PainelImagem painel = new PainelImagem(foto, "Visualizando Foto");
         painel.exibirImagem();
 
-        Ponto pontoInicial = new Ponto(10, 10);
+        Ponto pontoInicial = new Ponto(500, 200);
         int corOriginal = foto.obterCorPonto(pontoInicial);
-        int novaCor = new Color(0, 128, 0).getRGB(); // Verde
+        int novaCor = new Color(0, 128, 0).getRGB();
 
         FilaPontos fila = new FilaPontos(foto.obterAltura() * foto.obterLargura());
         fila.adicionar(pontoInicial);
 
         int contador = 0;
-        int intervaloAtualizacao = 10;
+        int intervaloAtualizacao = 2;
         while (!fila.estaVazia()) {
             Ponto atual = fila.remover();
             int x = atual.getPosX();

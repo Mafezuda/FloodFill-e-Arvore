@@ -107,7 +107,7 @@ public class Main {
         System.out.println("2- Imprimir árvore");
 
         int opcao = scan.nextInt();
-        scan.nextLine(); // Consumir nova linha
+        scan.nextLine();
 
         switch (opcao) {
             case 1:
@@ -135,6 +135,6 @@ public class Main {
                 System.out.println("Opção inválida. Tente novamente.");
         }
 
-        scan.close(); // Fechar o scanner
+        scan.close();
     }
 }
