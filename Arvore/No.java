@@ -17,8 +17,6 @@ public class No {
 
     public No getEsquerda(){ return esquerda;}
 
-    public void setLetra(Letra a){ this.valor = a;}
-    
     public void setDireita(No trocar){ this.direita = trocar;}
 
     public void setEsquerda(No trocar){ this.esquerda = trocar;}
