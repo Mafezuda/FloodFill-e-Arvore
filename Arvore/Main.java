@@ -135,6 +135,6 @@ public class Main {
                 System.out.println("Opção inválida. Tente novamente.");
         }
 
-        scan.close(); // Fechar o scanner
+
     }
 }

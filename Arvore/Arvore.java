@@ -60,7 +60,7 @@ public class Arvore {
         return atual;
     }
 
-    // Função para imprimir a árvore em formato hierárquico com os "trapinhos"
+    // Função para imprimir a árvore em formato hierárquico 
     public static void imprimirArvore(No raiz) {
         List<List<String>> linhas = new ArrayList<>();
         construirLinhas(raiz, 0, linhas);
@@ -87,7 +87,7 @@ public class Arvore {
         construirLinhas(no.getDireita(), nivel + 1, linhas);
     }
 
-    // Função para formatar as linhas com os "trapinhos" conectando os nós
+    // Função para formatar as linhas 
     private static List<String> formatarLinhas(List<List<String>> linhas) {
         List<String> resultado = new ArrayList<>();
         int espacoEntreNos = (int) Math.pow(2, linhas.size()); // Espaçamento inicial
@@ -132,8 +132,6 @@ public class Arvore {
 
         return resultado;
     }
-
-   
 
     
 }
